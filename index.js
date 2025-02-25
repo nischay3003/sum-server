@@ -1,5 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+
+const serverless =require("serverless-http");
+
 const app = express();
 app.use(cors());
 
@@ -84,5 +87,4 @@ app.get("/notifications", (req, res) => {
   })
 
 })
-
-app.listen(8080)
+module.exports.handler = serverless(app);
